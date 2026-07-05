@@ -59,6 +59,7 @@ export const projects: Project[] = [
     role: "Writer, Photographer",
     synopsis: "Kunstenaar achter de kunstenaars. Gepubliceerd in Focus #3/2025.",
     cover: "/media/stills/article-cover.jpg",
+    externalUrl: "/media/articles/Focus%20Erik%20Levert.pdf",
   },
   {
     slug: "bijna",
