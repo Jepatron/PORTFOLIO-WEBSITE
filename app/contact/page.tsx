@@ -32,11 +32,11 @@ export default function ContactPage() {
             <p className="font-body text-xs uppercase tracking-widest text-ink-dim mb-6">Email</p>
             {/* Replace with your real email address */}
             <a
-              href="mailto:you@example.com"
+              href="mailto:Jepvanzomeren@gmail.com"
               data-cursor="hover"
               className="font-display text-2xl md:text-3xl text-ink tracking-tightest hover:text-accent transition-colors"
             >
-              you@example.com
+              Jepvanzomeren@gmail.com
             </a>
           </div>
 

@@ -8,8 +8,8 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex flex-col gap-2 font-body text-sm text-ink-dim md:items-end">
-          <a href="mailto:you@example.com" data-cursor="hover" className="hover:text-ink transition-colors">
-            you@example.com
+          <a href="mailto:Jepvanzomeren@gmail.com" data-cursor="hover" className="hover:text-ink transition-colors">
+            Jepvanzomeren@gmail.com
           </a>
           <a href="https://instagram.com/jep_parker" data-cursor="hover" className="hover:text-ink transition-colors">
             @jep_parker

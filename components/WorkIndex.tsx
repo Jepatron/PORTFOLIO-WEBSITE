@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const categories = [
-  { label: "Articles",    href: "/work#articles"    },
-  { label: "Videography", href: "/work#videography" },
-  { label: "Photography", href: "/work#photography" },
+  { label: "Articles",    href: "/work/articles"    },
+  { label: "Videography", href: "/work/videography" },
+  { label: "Photography", href: "/work/photography" },
 ];
 
 export default function WorkIndex() {

@@ -1,45 +1,36 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/content/projects";
+import Link from "next/link";
 
-export const metadata = {
-  title: "Work — Jep Parker",
-};
+export const metadata = { title: "Work — Jep Parker" };
 
-const sections = [
-  { label: "Articles",     type: "article" },
-  { label: "Videography",  type: "video"   },
-  { label: "Photography",  type: "photo"   },
-] as const;
+const categories = [
+  { label: "Articles",    href: "/work/articles"    },
+  { label: "Videography", href: "/work/videography" },
+  { label: "Photography", href: "/work/photography" },
+];
 
 export default function WorkPage() {
   return (
     <>
       <Nav />
       <main className="px-6 md:px-10 pt-32 pb-24">
-
-        <p className="font-body text-xs uppercase tracking-widest text-ink-dim mb-16">
-          Work
-        </p>
-
-        {sections.map(({ label, type }) => {
-          const items = projects.filter((p) => p.type === type);
-          if (items.length === 0) return null;
-          return (
-            <section key={type} id={type === "article" ? "articles" : type === "video" ? "videography" : "photography"} className="mb-20">
-              <h2 className="font-display text-4xl md:text-6xl text-ink tracking-tightest mb-2">
-                {label}
-              </h2>
-              <div className="border-b border-ink/10">
-                {items.map((project, i) => (
-                  <ProjectCard key={project.slug} project={project} index={i} />
-                ))}
-              </div>
-            </section>
-          );
-        })}
-
+        <p className="font-body text-xs uppercase tracking-widest text-ink-dim mb-6">Work</p>
+        <div className="border-b border-ink/10">
+          {categories.map((cat) => (
+            <Link
+              key={cat.label}
+              href={cat.href}
+              data-cursor="hover"
+              className="group flex items-center justify-between border-t border-ink/10 py-8 md:py-10"
+            >
+              <span className="font-display text-5xl md:text-7xl text-ink tracking-tightest transition-transform duration-300 group-hover:translate-x-2">
+                {cat.label}
+              </span>
+              <span className="font-body text-sm text-ink-dim group-hover:text-ink transition-colors">→</span>
+            </Link>
+          ))}
+        </div>
       </main>
       <Footer />
     </>

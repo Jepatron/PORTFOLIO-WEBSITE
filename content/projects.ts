@@ -83,28 +83,4 @@ export const projects: Project[] = [
     cover: "/media/stills/pyrenees-cover.jpg",
     vimeoId: "REPLACE_WITH_VIMEO_ID",
   },
-  {
-    slug: "example-photo-story",
-    title: "Example Photo Story",
-    year: "2026",
-    type: "photo",
-    role: "Photographer",
-    synopsis: "Swap this out for a real photo essay — stills only, no video.",
-    cover: "/media/stills/example-cover.jpg",
-    gallery: [
-      "/media/stills/example-1.jpg",
-      "/media/stills/example-2.jpg",
-      "/media/stills/example-3.jpg",
-    ],
-  },
-  {
-    slug: "example-article",
-    title: "Example Article",
-    year: "2026",
-    type: "article",
-    role: "Writer",
-    synopsis: "Swap this for a real piece — either paste the text or link out.",
-    cover: "/media/stills/article-cover.jpg",
-    body: "Replace this with your article text, or set externalUrl instead and this project card will link out to where it's published.",
-  },
 ];

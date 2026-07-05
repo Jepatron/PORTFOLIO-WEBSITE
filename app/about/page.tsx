@@ -57,9 +57,8 @@ export default function AboutPage() {
           <div>
             <p className="font-body text-xs uppercase tracking-widest text-ink-dim mb-4">Published in</p>
             <ul className="space-y-2 font-body text-ink">
-              {/* Add your outlets here */}
               <li>Het Parool</li>
-              <li>— add more —</li>
+              <li>Focus Magazine</li>
             </ul>
           </div>
 
