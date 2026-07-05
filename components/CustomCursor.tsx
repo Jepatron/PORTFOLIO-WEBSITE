@@ -49,7 +49,7 @@ export default function CustomCursor() {
   return (
     <div
       ref={dotRef}
-      className="pointer-events-none fixed left-0 top-0 z-[999] hidden md:block h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ink mix-blend-difference transition-transform duration-200 ease-out [&.cursor-grow]:scale-[4]"
+      className="pointer-events-none fixed left-0 top-0 z-[999] hidden md:block h-[6px] w-[6px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-ink transition-all duration-200 ease-out [&.cursor-grow]:scale-[5] [&.cursor-grow]:opacity-20"
     />
   );
 }

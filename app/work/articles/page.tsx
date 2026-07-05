@@ -12,15 +12,15 @@ export default function ArticlesPage() {
   return (
     <>
       <Nav />
-      <main className="px-6 md:px-10 pt-32 pb-24">
-        <p className="font-body text-xs uppercase tracking-widest text-ink-dim mb-6">
+      <main className="px-6 md:px-12 pt-36 pb-28">
+        <p className="font-body text-xs uppercase tracking-widest text-ink-dim mb-14">
           <Link href="/work" className="hover:text-ink transition-colors">Work</Link>
-          <span className="mx-2">·</span>Articles
+          <span className="mx-2 opacity-40">·</span>Articles
         </p>
-        <h1 className="font-display text-5xl md:text-7xl text-ink tracking-tightest mb-16">
+        <h1 className="font-display text-6xl md:text-8xl text-ink tracking-tightest leading-[0.9] mb-20">
           Articles
         </h1>
-        <div className="border-b border-ink/10">
+        <div>
           {items.map((project, i) => (
             <ProjectCard key={project.slug} project={project} index={i} />
           ))}

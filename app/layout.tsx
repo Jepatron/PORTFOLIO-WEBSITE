@@ -27,7 +27,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body className="bg-bg text-ink font-body antialiased">
-        <div className="grain" aria-hidden="true" />
         <CustomCursor />
         <SmoothScroll>{children}</SmoothScroll>
       </body>

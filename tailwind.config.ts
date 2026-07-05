@@ -11,11 +11,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0b0b0a",        // near-black, slightly warm — replace with your still's shadow tone
-        "bg-raised": "#141412",
-        ink: "#ede9e3",       // off-white, not pure white
-        "ink-dim": "#8a867e",
-        accent: "#b5471b",    // placeholder warm accent — pull this from your footage instead
+        bg: "#f5f1ea",
+        "bg-raised": "#ede9e0",
+        ink: "#0f0e0d",
+        "ink-dim": "#7a766e",
+        accent: "#b5471b",
       },
       fontFamily: {
         display: ["var(--font-display)"],
