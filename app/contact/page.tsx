@@ -44,6 +44,14 @@ export default function ContactPage() {
               >
                 Instagram — @jep_parker
               </a>
+              <a
+                href="https://www.linkedin.com/in/jep-van-der-horst-61611b291/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body text-ink hover:text-accent transition-colors duration-300"
+              >
+                LinkedIn — Jep van der Horst
+              </a>
             </div>
           </div>
 
