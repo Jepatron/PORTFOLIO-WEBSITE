@@ -39,6 +39,7 @@ export default function AboutPage() {
           <div>
             <p className="font-body text-xs uppercase tracking-widest text-ink-dim mb-6">Currently</p>
             <ul className="space-y-3 font-body text-ink">
+              <li>Hogeschool Utrecht — Journalism</li>
               <li>Het Parool — placement</li>
               <li>Amsterdam</li>
             </ul>
