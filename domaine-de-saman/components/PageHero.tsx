@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PhotoPlaceholder from "./PhotoPlaceholder";
+import MaskReveal from "./MaskReveal";
 
 type Cta = { label: string; href: string };
 type Tone = "forest" | "brass" | "cream";
@@ -35,7 +36,7 @@ export default function PageHero({
           <p className="mb-4 font-body text-xs uppercase tracking-[0.25em] text-cream/70">{eyebrow}</p>
         )}
         <h1 className="max-w-2xl font-display text-4xl leading-[1.1] tracking-tight text-cream md:text-5xl">
-          {title}
+          <MaskReveal>{title}</MaskReveal>
         </h1>
         {body && (
           <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-cream/85">{body}</p>

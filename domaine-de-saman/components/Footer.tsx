@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site, contact, footer, nav } from "@/content/site";
+import { site, contact, footer, nav, secondaryNav } from "@/content/site";
 
 export default function Footer() {
   return (
@@ -18,7 +18,7 @@ export default function Footer() {
               Explore
             </p>
             <ul className="mt-3 space-y-2">
-              {nav.map((item) => (
+              {[...nav, ...secondaryNav].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="font-body text-sm text-charcoal/80 hover:text-forest">
                     {item.label}

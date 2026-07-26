@@ -9,7 +9,7 @@ export const site = {
   region: "Haute-Garonne, France",
   nearestTown: "near Boulogne-sur-Gesse",
   tagline:
-    "A private 5-hectare estate in the Pyrenees — for families, weddings, and retreats.",
+    "A private 5-hectare estate in the Pyrenees. Yours, in full, for a while.",
   intro:
     "Domaine de Saman is a private country estate at the foot of the Pyrenees, rented as a whole for the duration of your stay. There's no programme, no staff running your day, and nothing organised on our end — just a well-equipped property, five hectares of grounds, and space for up to fifteen guests to shape the stay themselves.",
 };
@@ -24,8 +24,15 @@ export const nav = [
   { label: "The Estate", href: "/the-estate" },
   { label: "Weddings", href: "/weddings" },
   { label: "Retreats", href: "/retreats" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "The Region", href: "/region" },
   { label: "Availability", href: "/availability" },
+];
+
+// Reachable via the footer and cross-links rather than the primary nav,
+// to keep the top-level nav minimal.
+export const secondaryNav = [
+  { label: "Gallery", href: "/gallery" },
+  { label: "Our Story", href: "/our-story" },
 ];
 
 export const ctaLabel = "Check availability";
@@ -217,6 +224,44 @@ export const footer = {
   registrationNote:
     "Tourism registration number (NER): to be added once obtained.",
   privacyNote: "Privacy policy",
+};
+
+export const region = {
+  intro:
+    "Domaine de Saman sits inland, at the foot of the Pyrenees in Haute-Garonne — green and unhurried rather than coastal. It works as a destination on its own, or as a base for exploring the foothills and the country around them.",
+  activities: [
+    {
+      title: "Canyoning",
+      body: "[PLACEHOLDER: name specific canyons/operators once confirmed.] Within around two hours of the estate.",
+      photoLabel: "Canyoning in the Pyrenees foothills",
+    },
+    {
+      title: "White-water rafting",
+      body: "[PLACEHOLDER: name the nearest river/operator once confirmed.] Within around two hours of the estate.",
+      photoLabel: "White-water rafting, mountain river",
+    },
+    {
+      title: "Hiking",
+      body: "[PLACEHOLDER: name specific trails/peaks once confirmed.] The Pyrenees foothills are on the doorstep.",
+      photoLabel: "Hiking trail in the Pyrenees foothills",
+    },
+    {
+      title: "Via ferrata",
+      body: "[PLACEHOLDER: name the nearest via ferrata route once confirmed.] Within around two hours of the estate.",
+      photoLabel: "Via ferrata route, mountain cliffside",
+    },
+  ],
+  gettingHere:
+    "[PLACEHOLDER: confirm the nearest airport/station and typical travel time — e.g. distance to Toulouse — once verified. We'd rather leave this blank than publish a guess.]",
+};
+
+export const ourStory = {
+  eyebrow: "Our Story",
+  title: "This is our home.",
+  body: [
+    "Domaine de Saman isn't run by a hospitality company — it's a private property, opened up for a limited number of stays each year rather than let out continuously.",
+    "[PLACEHOLDER: replace this section with the real story — how the estate came to be, why it's opened to guests, and what matters to the people behind it about how it's used. Everything above is a placeholder structure, not invented biography.]",
+  ],
 };
 
 export const privacyPolicy = {

@@ -32,6 +32,14 @@ body {
   animation: ken-burns 24s ease-in-out infinite alternate;
 }
 
+@keyframes mask-reveal {
+  from { transform: translateY(110%); }
+  to { transform: translateY(0%); }
+}
+.mask-reveal-inner {
+  animation: mask-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

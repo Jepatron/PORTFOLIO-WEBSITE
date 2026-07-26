@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PhotoPlaceholder from "./PhotoPlaceholder";
+import MaskReveal from "./MaskReveal";
 import { site, ctaLabel } from "@/content/site";
 
 export default function HomeHero() {
@@ -22,7 +23,7 @@ export default function HomeHero() {
           {site.region} — {site.nearestTown}
         </p>
         <h1 className="max-w-3xl font-display text-4xl leading-[1.08] tracking-tight text-cream md:text-6xl">
-          {site.tagline}
+          <MaskReveal>{site.tagline}</MaskReveal>
         </h1>
         <div className="mt-9 flex flex-wrap items-center gap-5">
           <Link
