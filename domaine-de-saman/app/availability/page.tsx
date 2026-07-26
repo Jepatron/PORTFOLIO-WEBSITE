@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 import EnquiryForm from "@/components/EnquiryForm";
 import FAQ from "@/components/FAQ";
+import Reveal from "@/components/Reveal";
 import { contact } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -11,14 +13,16 @@ export const metadata: Metadata = {
 export default function Availability() {
   return (
     <main>
-      <section className="mx-auto max-w-3xl px-6 py-16 text-center md:px-10">
-        <h1 className="font-display text-3xl text-forest md:text-4xl">Availability &amp; Contact</h1>
-        <p className="mt-4 font-body text-sm text-grey">
-          Send us your dates, group size, and what you're planning — we'll come back to you directly.
-        </p>
-      </section>
+      <PageHero
+        eyebrow="Availability & Contact"
+        title="Check your dates."
+        body="Send us your dates, group size, and what you're planning — we'll come back to you directly."
+        photoLabel="Estate grounds at dusk"
+        tone="forest"
+        minHeight="min-h-[50svh]"
+      />
 
-      <section className="mx-auto max-w-2xl px-6 pb-16 md:px-10">
+      <Reveal className="mx-auto max-w-2xl px-6 py-16 md:px-10">
         <EnquiryForm />
         <p className="mt-8 text-center font-body text-sm text-grey">
           Prefer email? Reach us directly at{" "}
@@ -26,15 +30,15 @@ export default function Availability() {
             {contact.email}
           </a>
         </p>
-      </section>
+      </Reveal>
 
       <section className="bg-cream-deep">
-        <div className="mx-auto max-w-3xl px-6 py-16 md:px-10">
+        <Reveal className="mx-auto max-w-3xl px-6 py-16 md:px-10">
           <h2 className="font-display text-2xl text-forest">Frequently asked questions</h2>
           <div className="mt-8">
             <FAQ />
           </div>
-        </div>
+        </Reveal>
       </section>
     </main>
   );

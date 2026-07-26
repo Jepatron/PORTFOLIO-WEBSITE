@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import PhotoPlaceholder from "@/components/PhotoPlaceholder";
+import PageHero from "@/components/PageHero";
+import ImmersiveBreak from "@/components/ImmersiveBreak";
 import EnquiryForm from "@/components/EnquiryForm";
+import Reveal from "@/components/Reveal";
 import { retreats } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -11,40 +14,41 @@ export const metadata: Metadata = {
 export default function Retreats() {
   return (
     <main>
-      <PhotoPlaceholder
-        label="Yoga practice on the deck, mountain view at sunrise"
+      <PageHero
+        eyebrow="Retreats"
+        title="Your practice, your programme, our grounds."
+        body={retreats.intro}
+        photoLabel="Yoga practice on the deck, mountain view at sunrise"
         tone="forest"
-        aspect="aspect-[21/9]"
+        primaryCta={{ label: "Enquire about your retreat", href: "#enquire" }}
+        secondaryCta={{ label: "See the yoga deck", href: "/the-estate" }}
       />
 
-      <section className="mx-auto max-w-3xl px-6 py-16 md:px-10">
-        <h1 className="font-display text-3xl text-forest md:text-4xl">Retreats</h1>
-        <p className="mt-6 font-body text-base leading-relaxed text-grey">{retreats.intro}</p>
-      </section>
-
-      <section className="mx-auto grid max-w-6xl gap-8 px-6 pb-8 md:grid-cols-2 md:px-10">
+      <Reveal className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-2 md:px-10">
         <PhotoPlaceholder label={retreats.yogaDeck.photoLabel} tone="cream" aspect="aspect-[4/3]" />
         <div className="flex flex-col justify-center">
           <h2 className="font-display text-2xl text-forest">Yoga deck</h2>
           <p className="mt-3 font-body text-sm leading-relaxed text-grey">{retreats.yogaDeck.body}</p>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="mx-auto grid max-w-6xl gap-8 px-6 pb-16 md:grid-cols-2 md:px-10">
+      <Reveal className="mx-auto grid max-w-6xl gap-8 px-6 pb-16 md:grid-cols-2 md:px-10">
         <div className="order-2 flex flex-col justify-center md:order-1">
           <h2 className="font-display text-2xl text-forest">Gym / movement space</h2>
           <p className="mt-3 font-body text-sm leading-relaxed text-grey">{retreats.gym.body}</p>
         </div>
         <PhotoPlaceholder label={retreats.gym.photoLabel} tone="cream" aspect="aspect-[4/3]" className="order-1 md:order-2" />
-      </section>
+      </Reveal>
 
-      <section className="mx-auto max-w-6xl px-6 pb-16 md:px-10">
+      <ImmersiveBreak label="Group practice on the yoga deck, morning light through the trees" tone="forest" />
+
+      <section className="mx-auto max-w-6xl px-6 py-16 md:px-10">
         <div className="border-l-2 border-brass/60 bg-cream-deep px-6 py-5">
           <p className="font-body text-sm leading-relaxed text-charcoal/70">{retreats.disclaimer}</p>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-8 px-6 pb-16 md:grid-cols-2 md:px-10">
+      <Reveal className="mx-auto grid max-w-6xl gap-8 px-6 pb-16 md:grid-cols-2 md:px-10">
         <div>
           <h3 className="font-display text-xl text-forest">Self-catering</h3>
           <p className="mt-3 font-body text-sm leading-relaxed text-grey">{retreats.selfCatering}</p>
@@ -53,10 +57,10 @@ export default function Retreats() {
           <h3 className="font-display text-xl text-forest">Group rates</h3>
           <p className="mt-3 font-body text-sm leading-relaxed text-grey">{retreats.groupRates}</p>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="bg-cream-deep">
-        <div className="mx-auto max-w-2xl px-6 py-16 md:px-10">
+      <section id="enquire" className="bg-cream-deep">
+        <Reveal className="mx-auto max-w-2xl px-6 py-16 md:px-10">
           <h2 className="font-display text-2xl text-forest">Enquire about your retreat</h2>
           <p className="mt-2 font-body text-sm text-grey">
             Tell us your dates and group size and we'll confirm availability and rates.
@@ -64,7 +68,7 @@ export default function Retreats() {
           <div className="mt-8">
             <EnquiryForm defaultPurpose="retreat" />
           </div>
-        </div>
+        </Reveal>
       </section>
     </main>
   );

@@ -11,7 +11,9 @@
   "dependencies": {
     "next": "^15.5.9",
     "react": "^19.2.2",
-    "react-dom": "^19.2.2"
+    "react-dom": "^19.2.2",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.9"
   },
   "devDependencies": {
     "typescript": "^5.5.4",

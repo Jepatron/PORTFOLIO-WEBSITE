@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <main>
+    <main className="pt-20">
       <section className="mx-auto max-w-2xl px-6 py-16 md:px-10">
         <h1 className="font-display text-3xl text-forest">Privacy</h1>
         <p className="mt-6 font-body text-sm leading-relaxed text-grey">{privacyPolicy.intro}</p>

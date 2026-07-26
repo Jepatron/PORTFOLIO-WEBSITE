@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -26,9 +27,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="bg-cream font-body text-charcoal antialiased">
+        <div className="grain" />
         <Nav />
-        {children}
-        <Footer />
+        <SmoothScroll>
+          {children}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
