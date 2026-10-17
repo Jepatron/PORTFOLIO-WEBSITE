@@ -16,7 +16,7 @@ export default function AboutPage() {
             Journalist &amp;<br />filmmaker.
           </h1>
           <p className="mt-12 font-body text-ink-dim leading-relaxed max-w-2xl text-base">
-            Jep Parker is a journalism student in Amsterdam, currently on placement at Het Parool. He works across written reportage, documentary film, and long-form photography — always with the same question underneath: what does this feel like from the inside?
+            Jep Parker is a journalism student in Amsterdam, in the final year of his bachelor&rsquo;s. He works across written reportage, documentary film, and long-form photography — always with the same question underneath: what does this feel like from the inside?
           </p>
           <p className="mt-5 font-body text-ink-dim leading-relaxed max-w-2xl text-base">
             Before journalism, he spent two years making short documentaries independently. That way of looking — slow, close, without commentary — still runs through everything he writes.
@@ -40,7 +40,7 @@ export default function AboutPage() {
             <p className="font-body text-xs uppercase tracking-widest text-ink-dim mb-6">Currently</p>
             <ul className="space-y-3 font-body text-ink">
               <li>Hogeschool Utrecht — Journalism</li>
-              <li>Het Parool — placement</li>
+              <li>Final year, graduating</li>
               <li>Amsterdam</li>
             </ul>
           </div>
@@ -48,7 +48,6 @@ export default function AboutPage() {
           <div>
             <p className="font-body text-xs uppercase tracking-widest text-ink-dim mb-6">Published in</p>
             <ul className="space-y-3 font-body text-ink">
-              <li>Het Parool</li>
               <li>Focus Magazine</li>
             </ul>
           </div>

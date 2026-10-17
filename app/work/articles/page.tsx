@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import ProjectCard from "@/components/ProjectCard";
+import ArticleIndex from "@/components/ArticleIndex";
 import Link from "next/link";
 import { projects } from "@/content/projects";
 
@@ -17,14 +17,13 @@ export default function ArticlesPage() {
           <Link href="/work" className="hover:text-ink transition-colors">Work</Link>
           <span className="mx-2 opacity-40">·</span>Articles
         </p>
-        <h1 className="font-display text-6xl md:text-8xl text-ink tracking-tightest leading-[0.9] mb-20">
+        <h1 className="font-display text-6xl md:text-8xl text-ink tracking-tightest leading-[0.9]">
           Articles
         </h1>
-        <div>
-          {items.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} index={i} />
-          ))}
-        </div>
+        <p className="mt-8 mb-16 max-w-xl font-body text-ink-dim leading-relaxed">
+          Interviews, reportage, essays, philosophy, poetry and short fiction.
+        </p>
+        <ArticleIndex items={items} />
       </main>
       <Footer />
     </>

@@ -18,7 +18,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           </h3>
         </div>
         <span className="hidden font-body text-xs uppercase tracking-widest text-ink-dim md:block">
-          {project.type} — {project.year}
+          {project.category ?? project.type} — {project.year}
         </span>
       </div>
       <div className="pointer-events-none absolute right-12 top-1/2 hidden w-60 -translate-y-1/2 translate-x-6 overflow-hidden opacity-0 shadow-lg transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100 md:block">

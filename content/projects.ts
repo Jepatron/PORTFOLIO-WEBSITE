@@ -3,6 +3,19 @@
 
 export type ProjectType = "video" | "photo" | "article";
 
+// Subjects for written work. The Articles page shows one filter tab per
+// subject, in this order. Add a new subject here and it appears as a tab.
+export const articleCategories = [
+  "Interview",
+  "Reportage",
+  "Essay",
+  "Philosophy",
+  "Poetry",
+  "Short fiction",
+] as const;
+
+export type ArticleCategory = (typeof articleCategories)[number];
+
 export type Project = {
   slug: string;              // used in the URL: /work/[slug]
   title: string;
@@ -16,8 +29,10 @@ export type Project = {
   // PHOTO projects
   gallery?: string[];          // paths under /public/media/stills
   // ARTICLE projects
+  category?: ArticleCategory;  // subject shown on the Articles page, e.g. "Interview"
+  publication?: string;        // where it ran, e.g. "Focus Magazine"
   body?: string;               // markdown or plain text body
-  externalUrl?: string;        // if published elsewhere (e.g. Het Parool), link out instead
+  externalUrl?: string;        // if published elsewhere (e.g. a magazine site), link out instead
 };
 
 export const projects: Project[] = [
@@ -26,6 +41,7 @@ export const projects: Project[] = [
     title: "Tobias Nap",
     year: "2025",
     type: "article",
+    category: "Interview",
     role: "Writer",
     synopsis: "Portret van de 22-jarige fotografiestudent Tobias Nap, wiens project Precious Devices 2024 de achterkanten van telefoons gebruikt om menselijke persoonlijkheid en onze relatie met technologie te onderzoeken.",
     cover: "/media/stills/article-cover.jpg",
@@ -36,6 +52,8 @@ export const projects: Project[] = [
     title: "Remko de Waal",
     year: "2025",
     type: "article",
+    category: "Interview",
+    publication: "Focus Magazine",
     role: "Writer",
     synopsis: "Tien jaar na zijn belofte wint ANP-fotograaf Remko de Waal de Zilveren Camera 2024 met een iconisch beeld van Sifan Hassan tijdens de Olympische marathon in Parijs.",
     cover: "/media/stills/article-cover.jpg",
@@ -46,6 +64,8 @@ export const projects: Project[] = [
     title: "De Ondergedoken Camera",
     year: "2025",
     type: "article",
+    category: "Reportage",
+    publication: "Focus Magazine",
     role: "Writer",
     synopsis: "Verslag van het boek en de expo van NIOD-onderzoekers Erik Somers en René Kok over de fotografen die met gevaar voor eigen leven het laatste jaar van de bezetting in Amsterdam vastlegden.",
     cover: "/media/stills/article-cover.jpg",
@@ -56,6 +76,8 @@ export const projects: Project[] = [
     title: "Eric Levert",
     year: "2025",
     type: "article",
+    category: "Interview",
+    publication: "Focus Magazine",
     role: "Writer, Photographer",
     synopsis: "Kunstenaar achter de kunstenaars. Gepubliceerd in Focus #3/2025.",
     cover: "/media/stills/article-cover.jpg",

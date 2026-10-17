@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="grid gap-12 md:grid-cols-2">
         <div>
           <p className="font-display text-2xl md:text-4xl text-ink tracking-tightest max-w-sm leading-[1.1]">
-            Journalism student in Amsterdam, currently at Het Parool.
+            Graduating journalism student, Amsterdam.
           </p>
         </div>
         <div className="flex flex-col gap-3 font-body text-sm text-ink-dim md:items-end md:justify-end">

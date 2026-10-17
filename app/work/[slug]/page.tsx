@@ -19,7 +19,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <Nav />
       <main className="px-6 md:px-10 pt-32 pb-24">
         <p className="font-body text-xs uppercase tracking-widest text-ink-dim">
-          {project.type} — {project.year} — {project.role}
+          {project.category ?? project.type} — {project.year} — {project.role}
         </p>
         <h1 className="mt-4 font-display text-5xl md:text-7xl text-ink tracking-tightest">
           {project.title}
