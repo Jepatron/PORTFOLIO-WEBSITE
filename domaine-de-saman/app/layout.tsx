@@ -1,9 +1,12 @@
-import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import SmoothScroll from "@/components/SmoothScroll";
+import { getLocale } from "next-intl/server";
 import "./globals.css";
+
+// This stays the outermost layout (Next.js requires exactly one <html>),
+// but everything locale-specific — Nav, Footer, metadata, structured data —
+// lives one level down in app/[locale]/layout.tsx, since this file sits
+// above the [locale] route segment and can't read that param directly.
+// getLocale() reads the locale the middleware already resolved instead.
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -17,23 +20,11 @@ const inter = Inter({
   variable: "--font-body",
 });
 
-export const metadata: Metadata = {
-  title: "Domaine de Saman — Private estate in the Pyrenees",
-  description:
-    "A private 5-hectare estate at the foot of the Pyrenees, sleeping 15 — for families & groups, weddings, and yoga retreats.",
-};
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale();
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="bg-cream font-body text-charcoal antialiased">
-        <div className="grain" />
-        <Nav />
-        <SmoothScroll>
-          {children}
-          <Footer />
-        </SmoothScroll>
-      </body>
+    <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
+      <body className="bg-cream font-body text-charcoal antialiased">{children}</body>
     </html>
   );
 }

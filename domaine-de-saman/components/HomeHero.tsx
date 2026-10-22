@@ -1,18 +1,34 @@
-import Link from "next/link";
-import PhotoPlaceholder from "./PhotoPlaceholder";
+import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 import MaskReveal from "./MaskReveal";
-import { site, ctaLabel } from "@/content/site";
+import type { SiteContent } from "@/content";
 
-export default function HomeHero() {
+export default function HomeHero({
+  site,
+  ctaLabel,
+}: {
+  site: SiteContent["site"];
+  ctaLabel: string;
+}) {
   return (
     <section className="relative flex min-h-[100svh] items-end overflow-hidden">
       <div className="absolute inset-0">
-        <PhotoPlaceholder
-          label="Full-bleed hero: estate house at golden hour, mountains behind — swap for a looping background video on desktop"
-          tone="forest"
-          aspect="aspect-auto"
-          animated
-          className="h-full w-full"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/media/hero-mainhouse-trailer-poster.jpg"
+          className="hidden h-full w-full object-cover md:block"
+        >
+          <source src="/media/hero-mainhouse-trailer.mp4" type="video/mp4" />
+        </video>
+        <Image
+          src="/media/hero-mainhouse-trailer-poster.jpg"
+          alt="The main house at Domaine de Saman"
+          fill
+          priority
+          className="object-cover md:hidden"
         />
       </div>
       {/* Depth gradient so hero text stays legible once a real photo/video replaces the placeholder. */}
@@ -25,6 +41,7 @@ export default function HomeHero() {
         <h1 className="max-w-3xl font-display text-4xl leading-[1.08] tracking-tight text-cream md:text-6xl">
           <MaskReveal>{site.tagline}</MaskReveal>
         </h1>
+        <p className="mt-4 max-w-xl font-body text-base text-cream/80 md:text-lg">{site.heroSubline}</p>
         <div className="mt-9 flex flex-wrap items-center gap-5">
           <Link
             href="/availability"
@@ -36,7 +53,7 @@ export default function HomeHero() {
             href="/the-estate"
             className="inline-block font-body text-xs uppercase tracking-[0.2em] text-cream/85 underline-offset-4 transition-colors hover:text-cream hover:underline"
           >
-            Explore the estate
+            {site.exploreCta}
           </Link>
         </div>
       </div>

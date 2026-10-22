@@ -40,6 +40,15 @@ body {
   animation: mask-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Filtered-grid transition for the seasonal activity explorer. */
+@keyframes filter-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-filter-fade-in {
+  animation: filter-fade-in 0.35s ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

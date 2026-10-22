@@ -1,9 +1,15 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import PhotoPlaceholder from "./PhotoPlaceholder";
 import Reveal from "./Reveal";
-import { audiences } from "@/content/site";
+import type { SiteContent } from "@/content";
 
-export default function AudienceCards() {
+export default function AudienceCards({
+  audiences,
+  learnMoreCta,
+}: {
+  audiences: SiteContent["audiences"];
+  learnMoreCta: string;
+}) {
   return (
     <section className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
       <div className="grid gap-8 md:grid-cols-3">
@@ -25,7 +31,7 @@ export default function AudienceCards() {
                 <h3 className="font-display text-2xl text-forest">{a.title}</h3>
                 <p className="flex-1 font-body text-sm leading-relaxed text-grey">{a.blurb}</p>
                 <span className="font-body text-xs uppercase tracking-[0.15em] text-brass transition-transform group-hover:translate-x-1">
-                  Learn more →
+                  {learnMoreCta}
                 </span>
               </div>
             </Link>

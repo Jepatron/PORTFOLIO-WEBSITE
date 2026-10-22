@@ -1,15 +1,28 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
-import { nav, ctaLabel, site } from "@/content/site";
+import LanguageSwitcher from "./LanguageSwitcher";
+import LogoMark from "./LogoMark";
+import type { Locale, NavItem } from "@/content";
 
 // Pages without a dark, full-bleed hero directly under the nav — the nav
 // stays solid on these from the start instead of floating transparent.
-const SOLID_FROM_TOP = ["/privacy"];
+const SOLID_FROM_TOP = ["/privacy", "/reserve"];
 
-export default function Nav() {
+export default function Nav({
+  locale,
+  nav,
+  ctaLabel,
+  siteName,
+  languageSwitcherLabel,
+}: {
+  locale: Locale;
+  nav: NavItem[];
+  ctaLabel: string;
+  siteName: string;
+  languageSwitcherLabel: string;
+}) {
   const pathname = usePathname();
   const isImmersive = !SOLID_FROM_TOP.includes(pathname);
   const [scrolled, setScrolled] = useState(false);
@@ -33,16 +46,20 @@ export default function Nav() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-6 md:px-10">
-        <Link
-          href="/"
-          onClick={() => setOpen(false)}
-          className={`font-display text-lg transition-colors duration-300 ${solid ? "text-forest" : "text-cream"}`}
-        >
-          {site.name}
-        </Link>
+      <div className="grid h-full grid-cols-[auto_1fr_auto] items-center gap-4 px-6 md:px-10">
+        <div className="flex items-center gap-4">
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className={`flex items-center gap-2 font-display text-lg transition-colors duration-300 ${solid ? "text-forest" : "text-cream"}`}
+          >
+            <LogoMark className="h-6 w-6 shrink-0" />
+            <span>{siteName}</span>
+          </Link>
+          <LanguageSwitcher currentLocale={locale} solid={solid} label={languageSwitcherLabel} />
+        </div>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center justify-center gap-8 md:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -54,34 +71,37 @@ export default function Nav() {
               {item.label}
             </Link>
           ))}
+        </div>
+
+        <div className="flex items-center justify-end">
           <Link
-            href="/availability"
-            className={`rounded-sm px-4 py-2 font-body text-xs uppercase tracking-[0.15em] transition-all duration-300 hover:shadow-md ${
+            href="/reserve"
+            className={`hidden rounded-sm px-4 py-2 font-body text-xs uppercase tracking-[0.15em] transition-all duration-300 hover:shadow-md md:inline-block ${
               solid ? "bg-forest text-cream hover:bg-forest/90" : "bg-cream text-forest hover:bg-cream-deep"
             }`}
           >
             {ctaLabel}
           </Link>
-        </div>
 
-        <button
-          type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden"
-        >
-          <span
-            className={`h-px w-6 transition-transform ${solid ? "bg-charcoal" : "bg-cream"} ${
-              open ? "translate-y-[3.5px] rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`h-px w-6 transition-transform ${solid ? "bg-charcoal" : "bg-cream"} ${
-              open ? "-translate-y-[3.5px] -rotate-45" : ""
-            }`}
-          />
-        </button>
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden"
+          >
+            <span
+              className={`h-px w-6 transition-transform ${solid ? "bg-charcoal" : "bg-cream"} ${
+                open ? "translate-y-[3.5px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-px w-6 transition-transform ${solid ? "bg-charcoal" : "bg-cream"} ${
+                open ? "-translate-y-[3.5px] -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -97,12 +117,15 @@ export default function Nav() {
             </Link>
           ))}
           <Link
-            href="/availability"
+            href="/reserve"
             onClick={() => setOpen(false)}
             className="mt-2 rounded-sm bg-forest px-4 py-3 text-center font-body text-xs uppercase tracking-[0.15em] text-cream"
           >
             {ctaLabel}
           </Link>
+          <div className="mt-4 flex justify-center border-t border-charcoal/10 pt-4">
+            <LanguageSwitcher currentLocale={locale} solid label={languageSwitcherLabel} />
+          </div>
         </div>
       )}
     </nav>

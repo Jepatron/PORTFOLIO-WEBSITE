@@ -1,11 +1,11 @@
 import PhotoPlaceholder from "./PhotoPlaceholder";
 import Reveal from "./Reveal";
-import { estate } from "@/content/site";
+import type { SiteContent } from "@/content";
 
-export default function AmenitiesGrid() {
+export default function AmenitiesGrid({ amenities }: { amenities: SiteContent["estate"]["amenities"] }) {
   return (
     <div className="grid gap-8 md:grid-cols-2">
-      {estate.amenities.map((a, i) => (
+      {amenities.map((a, i) => (
         <Reveal key={a.title} delay={(i % 2) * 0.1}>
           <div className="group overflow-hidden border border-charcoal/10 transition-shadow duration-300 hover:shadow-xl">
             <div className="overflow-hidden">

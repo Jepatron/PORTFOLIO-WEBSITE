@@ -1,6 +1,6 @@
-import { faqs } from "@/content/site";
+import type { SiteContent } from "@/content";
 
-export default function FAQ() {
+export default function FAQ({ faqs }: { faqs: SiteContent["faqs"] }) {
   return (
     <div className="divide-y divide-charcoal/10 border-y border-charcoal/10">
       {faqs.map((item) => (

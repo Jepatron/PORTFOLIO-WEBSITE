@@ -72,6 +72,21 @@ otherwise it falls back to building a `mailto:` draft. To go live:
 
 Swapping in a real booking backend later only touches this one component.
 
+## 5b. Stay & Reserve pages
+
+- **`/stay`** shows every bedroom of both houses with its own slideshow
+  (`components/Slideshow.tsx`). Room details and slide labels live in
+  `estate.villa.rooms` / `estate.farmhouse.rooms` in each locale file. To use
+  a real photo, replace a label string with `{ src: "/media/...", alt: "..." }`.
+- **`/reserve`** is the booking-request page: choose a stay, pick dates on the
+  calendar, set guest numbers, and send a request. It uses the same delivery as
+  the enquiry form (Formspree endpoint, or a mailto: fallback). Nothing is charged.
+- **`content/booking.ts`** holds the shared booking settings: minimum nights,
+  which options are bookable (only the whole estate for now), guest limits, and
+  hand-maintained blocked dates (currently example dates — replace them).
+- Prices are shown as **"On request"** by design. House rules and booking terms
+  on `/reserve` are mostly `[PLACEHOLDER]`s.
+
 ## 6. Before this goes public
 
 - Replace all `[PLACEHOLDER: ...]` facts with confirmed details.
@@ -79,8 +94,10 @@ Swapping in a real booking backend later only touches this one component.
 - Confirm the wedding-hosting "our approach" note on the Weddings page still
   reflects the current legal/ERP status before publishing more assertive
   wedding-venue language.
-- No pricing or financial figures are on the site by design — keep it that
-  way unless that decision changes.
+- No pricing or financial figures are on the site by design ("Price on
+  request" on /reserve) — keep it that way unless that decision changes.
+- Replace the example blocked dates in `content/booking.ts` and confirm
+  `minNights`, house rules, and booking terms.
 - Add the tourism registration number (NER) to the footer once obtained.
 - Replace the privacy page stub with a reviewed GDPR notice.
 

@@ -1,11 +1,17 @@
 import Reveal from "./Reveal";
-import { howItWorks } from "@/content/site";
+import type { SiteContent } from "@/content";
 
-export default function HowItWorks() {
+export default function HowItWorks({
+  howItWorks,
+  eyebrow,
+}: {
+  howItWorks: SiteContent["howItWorks"];
+  eyebrow: string;
+}) {
   return (
     <section className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
       <Reveal>
-        <p className="font-body text-xs uppercase tracking-[0.2em] text-brass">How it works</p>
+        <p className="font-body text-xs uppercase tracking-[0.2em] text-brass">{eyebrow}</p>
       </Reveal>
       <div className="mt-8 grid gap-10 md:grid-cols-2 md:gap-16">
         {howItWorks.map((step, i) => (
